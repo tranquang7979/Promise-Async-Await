@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Promise lesson</title>
+    <script>
+        let add = (a, b) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (typeof (a) !== 'number' || typeof (b) !== 'number')
+                        return reject(new Error('Parameter must be a number.'));
+                    resolve(a + b);
+                }, 1000);
+            });
+        }
+        /*let a = add(4, 5)
+            .then(res => {
+                console.log('Case 1: ' + res);
+                return 'Result: ' + res;
+            }, err => {
+                console.log('Error: ' + err);
+                return 'Error: ' + err;
+            })
+            .then(res => console.log('Success'));
+        console.log(a);
+        setTimeout(() => console.log(a), 2500);
+        */
+
+        //let aPromise = Promise.resolve(add(4, 5));
+        //aPromise.then(res => console.log(res));
+        //console.log(aPromise);
+
+        let promiseReject = Promise.reject('Error');
+        promiseReject.catch(res => console.log(res + ' '));
+
+    </script>
+</head>
+
+<body>
+    <h1>Hello NodeJS & Promise</h1>
+</body>
+
+</html>
